@@ -367,3 +367,6 @@ FodyWeavers.xsd
 modules/
 blobs/
 log-*.txt
+
+# Rider configuration files
+.idea
