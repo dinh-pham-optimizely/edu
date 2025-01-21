@@ -1,36 +1,47 @@
-﻿@model PreciseAlloy.Web.Features.Blocks.Header.HeaderViewModel
+﻿@using EPiServer.Web.Routing
+@model PreciseAlloy.Web.Features.Blocks.Header.HeaderViewModel
 
 <header class="zzz-o-header">
-    <div class="zzz-container">
-        <div class="zzz-o-header__header-container">
-            <a href="#">
-                <img class="zzz-o-header__logo"
-                     width="70"
-                     height="50"
-                     alt="@Model.LogoAlternativeText"
-                     src="@Html.GetCacheBusterPath("/assets/images/logo.svg")">
-            </a>
-            <span class="zzz-o-header__title">@Model.CompanyName</span>
-            <div class="zzz-o-header__nav-mobile">
-                <div class="zzz-o-header__nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <ul class="zzz-o-header__nav-list">
-                @if (Model.Menu != null)
-                {
-                    foreach (var menuItem in Model.Menu)
-                    {
-                        <li class="zzz-o-header__nav-list__item">
-                            @Html.DisplayFor(m => menuItem)
-                        </li>
-                    }
-                }
-            </ul>
-        </div>
-    </div>
+       @if (Model.TopBarUrl != null && !string.IsNullOrEmpty(Model.TopBarText))
+       {
+              <div class="zzz-o-header__top-bar">
+                     <a class="zzz-a-link-with-icon" href="@Model.TopBarUrl" target="_blank">
+                            <span>@Model.TopBarText</span>
+                            <svg class="zzz-a-icon " aria-hidden="true" viewBox="0 0 20 20" width="20" height="20">
+                                   <use xlink:href="/assets/images/icons.svg#zzz-arrow-right"></use>
+                            </svg>
+                     </a>
+              </div>
+       }
+       <div class="zzz-o-header__content">
+              <div class="zzz-o-header__logo-container">
+                     <a href="@Model.LogoUrl">
+                            <picture class="zzz-a-picture zzz-o-header__logo">
+                                   <img src="/assets/images/logo.svg" loading="lazy" width="180" height="40">
+                            </picture>
+                     </a>
+              </div>
+              <ul class="zzz-o-header__links zzz-o-header__desktop-links">
+                     @if (Model.Menu != null)
+                     {
+                            @foreach (var menuItem in Model.Menu)
+                            {
+                                   var href = UrlResolver.Current.GetUrl(menuItem.Href);
+                                   var active = Model.RouteUrl == href ? "zzz-a-link--active" : "";
+                                   <li>
+                                          <a class="zzz-a-link @active" href="@href">
+                                                 <span>@menuItem.Text</span>
+                                          </a>
+                                   </li>
+                            }
+                     }
+              </ul>
+              <div class="zzz-o-header__hamburger-icon">
+                     <svg class="zzz-a-icon " aria-hidden="true" viewBox="0 0 28 28" width="28" height="28" aria-label="mobile-menu-trigger">
+                            <use xlink:href="/assets/images/icons.svg#zzz-hamburger"></use>
+                     </svg>
+              </div>
+       </div>
 </header>
 
 @{
