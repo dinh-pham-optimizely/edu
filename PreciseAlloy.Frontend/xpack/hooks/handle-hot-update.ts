@@ -10,6 +10,7 @@ const handleHotUpdate = (): PluginOption => {
     handleHotUpdate({ file, server }) {
       // console.log('handleHotUpdate');
 
+      console.log(file, 'handleHotUpdate');
       if (file.endsWith('.js') || file.endsWith('.css') || file.endsWith('.json'))
         server.ws.send({
           type: 'full-reload',

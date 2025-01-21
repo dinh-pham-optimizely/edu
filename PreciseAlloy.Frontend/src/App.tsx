@@ -30,6 +30,7 @@ const App = () => {
   return (
     <Routes>
       {routes.map(({ path, component: RouteComp }) => {
+
         return <Route key={path} path={viteAbsoluteUrl(path, true)} element={<RouteComp routes={routes} />}></Route>;
       })}
     </Routes>
