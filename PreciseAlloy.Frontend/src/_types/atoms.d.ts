@@ -32,7 +32,8 @@ export interface IconModel extends BasedAtomicModel {
 
 export interface LinkWithIconModel extends BasedAtomicModel {
   url: string;
-  icon: IconModel;
+  trailingIcon?: IconModel;
+  leadingIcon?: IconModel;
   target?: string;
   ariaLabel?: string;
   text?: string;
@@ -59,4 +60,13 @@ export interface TextareaModel extends BasedAtomicModel {
 
 export interface ErrorMessageModel extends BasedAtomicModel {
   error?: string;
+}
+
+export interface LinkModel extends BasedAtomicModel {
+  url: string;
+  text: string;
+  disabled?: boolean;
+  active?: boolean;
+  target?: string;
+  ariaLabel?: string;
 }

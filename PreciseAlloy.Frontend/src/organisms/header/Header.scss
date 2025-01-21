@@ -1,132 +1,160 @@
 .zzz-o-header {
-  background-color: $secondary-bg;
-  color: $secondary;
-  padding: px2rem(17px) 0;
-  position: relative;
+  --mt: #{px2rem(40px)};
+  --ml: #{px2rem(17px)};
+  --mr: #{px2rem(16px)};
+  --mb: #{px2rem(50px)};
+  --br: #{px2rem(12px)};
 
-  @include tablet {
-    padding: px2rem(35px) 0;
+  margin: var(--mt) var(--mr) var(--mb) var(--ml);
+
+  @include desktop {
+    --mt: #{px2rem(16px)};
+    --ml: #{px2rem(51px)};
+    --mr: #{px2rem(50px)};
+    --mb: #{px2rem(60px)};
   }
 
-  &__header-container {
+  @include desktop-xl {
+    --mt: #{px2rem(18px)};
+    --mb: #{px2rem(80px)};
+  }
+
+  &__top-bar {
+    background-image: url(/assets/images/top-banner.png);
+    background-size: cover;
     display: flex;
-    flex-direction: row;
     align-items: center;
-  }
+    justify-content: center;
+    padding: px2rem(14px) 0;
+    border: px2rem(2px) solid $grey-15;
+    border-radius: px2rem(8px);
 
-  &__title {
-    @include font-h1;
+    .zzz-a-link-with-icon {
+      align-items: center;
+      color: $grey-15;
+      gap: px2rem(10px);
+      text-decoration: none;
 
-    margin-right: auto;
-  }
+      font-weight: 500;
+      font-size: px2rem(14px);
+      line-height: 150%;
 
-  &__nav-list {
-    list-style: none;
-    display: none;
-    flex-direction: row;
-    gap: px2rem(30px);
-    padding: 0;
+      @include desktop {
+        font-size: px2rem(16px);
+        gap: px2rem(14px);
 
-    @include tablet {
-      display: flex;
-    }
-
-    &.active {
-      display: block;
-      background-color: $white;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      width: 100%;
-      border: px2rem(1px) solid transparent;
-      margin: 0;
-
-      @include tablet {
-        display: flex;
-        background-color: $green;
-        position: relative;
-        width: auto;
-      }
-    }
-
-    &__item {
-      @include font-sub-heading;
-      background-color: transparent;
-
-      a {
-        display: block;
-        width: 100%;
-        text-decoration: none;
-        color: $white;
-      }
-
-      @include tablet {
-        &:hover {
-          outline: rgb($white, 0.2) px2rem(15px) solid;
-          background-color: rgb($white, 0.2);
-          cursor: pointer;
+        svg {
+          width: px2rem(24px);
+          height: px2rem(24px);
         }
       }
-    }
 
-    &.active > li {
-      color: $green;
+      @include desktop-xl {
+        font-size: px2rem(20px);
 
-      a {
-        padding: px2rem(10px) px2rem(20px);
-        color: inherit;
-      }
-
-      &.zzz-theme-toggle {
-        border-top: rgb($black, 0.2) solid px2rem(1px);
-      }
-
-      @include tablet {
-        color: $white;
-
-        a {
-          padding: 0;
+        svg {
+          width: px2rem(30px);
+          height: px2rem(30px);
         }
+
       }
     }
   }
 
-  &__nav-mobile {
+  &__hamburger-icon {
+    background: $orange-95;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: px2rem(17px) px2rem(30px);
+    border-top-right-radius: var(--br);
+    border-bottom-right-radius: var(--br);
+    border-left: px2rem(2px) solid $grey-15;
     cursor: pointer;
 
-    @include tablet {
+    @include desktop {
       display: none;
     }
   }
 
-  &__nav-toggle {
+  &__content {
     display: flex;
-    flex-direction: column;
-    gap: px2rem(8px);
-    height: px2rem(30px);
-    width: px2rem(30px);
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--br);
+    background: $white;
+    border: px2rem(2px) solid $grey-15;
+    margin-top: px2rem(14px);
+  }
 
-    span {
-      height: px2rem(3px);
-      width: px2rem(30px);
-      background-color: $white;
-      transition: all 0.2s ease-in-out;
+  &__logo-container {
+    background: $orange-65;
+    padding: px2rem(16px) px2rem(20px);
+    border-top-left-radius: var(--br);
+    border-bottom-left-radius: var(--br);
+    border-right: px2rem(2px) solid $grey-15;
+
+    @include desktop-xl {
+      padding: px2rem(20px) px2rem(24px);
+    }
+  }
+
+  &__logo {
+    height: px2rem(30px);
+
+    @include desktop {
+      height: px2rem(34px);
     }
 
-    &.active {
-      gap: 0;
-      padding-top: px2rem(10px);
+    @include desktop-xl {
+      height: px2rem(40px);
+    }
+  }
 
-      span:nth-child(1) {
-        transform: rotate(45deg);
+  &__links {
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+
+       a {
+         text-decoration: none;
+         color: inherit;
+       }
+    }
+  }
+
+  &__desktop-links {
+    display: none;
+
+    @include desktop {
+      display: flex;
+    }
+
+    li {
+      border-left: px2rem(2px) solid $grey-15;
+
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 150%;
+      padding: px2rem(21px) px2rem(30px);
+
+      @include desktop-xl {
+        padding: px2rem(25px) px2rem(34px);
+
+        font-size: 20px;
       }
-      span:nth-child(2) {
-        display: none;
+
+      &:last-of-type {
+        background: $orange-75;
+        border-top-right-radius: var(--br);
+        border-bottom-right-radius: var(--br);
       }
-      span:nth-child(3) {
-        transform: rotate(-45deg);
-        margin-top: px2rem(-3px);
+
+      &:has(a.zzz-a-link--active) {
+        background: $orange-95;
       }
     }
   }

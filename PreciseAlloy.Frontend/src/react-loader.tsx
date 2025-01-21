@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom/client';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const blocks: { [name: string]: any } = {
   root: lazy(() => import('../xpack/root/Root')),
-  people: lazy(() => import('./organisms/people/People')),
-  header: lazy(() => import('./organisms/header/Header')),
 };
 
 const loadComponent = (scriptSection: HTMLScriptElement) => {
