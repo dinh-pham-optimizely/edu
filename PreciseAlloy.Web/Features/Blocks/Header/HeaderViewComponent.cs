@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using PreciseAlloy.Models.Pages;
 using PreciseAlloy.Models.Settings;
@@ -24,12 +25,16 @@ public class HeaderViewComponent(
             return new ContentViewComponentResult(string.Empty);
         }
 
+  
+        var routeUrl = HttpContext.Request.Path.ToString();
+
         var model = new HeaderViewModel
         {
-            CompanyName = layoutSettings?.CompanyName,
+            TopBarUrl = layoutSettings?.TopBarUrl,
+            TopBarText = layoutSettings?.TopBarText,
             LogoUrl = layoutSettings?.HeaderLogoUrl?.GetUrl(),
-            LogoAlternativeText = layoutSettings?.HeaderLogoAlternativeText,
-            Menu = layoutSettings?.HeaderMenu
+            Menu = layoutSettings?.HeaderMenu,
+            RouteUrl = routeUrl,
         };
 
         return await Task.FromResult(View(model));

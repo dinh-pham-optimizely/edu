@@ -12,6 +12,8 @@ export interface BasedAtomicModel {
   globalModifier?: string[];
   styleModifier?: string[];
   theme?: string;
+  className?: string;
+  attrs?: Record<string, string>;
 }
 
 declare global {

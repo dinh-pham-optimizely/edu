@@ -10,6 +10,12 @@
   }
 }
 
+@mixin desktop-xl {
+  @media (min-width: #{px2rem($desktop-xl)}) {
+    @content;
+  }
+}
+
 @mixin print {
   @media print {
     @content;

@@ -1,4 +1,5 @@
-﻿using EPiServer.Core;
+﻿using EPiServer;
+using EPiServer.Core;
 using EPiServer.DataAnnotations;
 using EPiServer.SpecializedProperties;
 using EPiServer.Web;
@@ -28,11 +29,18 @@ public class LayoutSettings
 
     #region Header
     [Display(
-        Name = "Company Name",
+        Name = "Top Bar Url",
         GroupName = TabNames.Header,
         Order = 100)]
     [CultureSpecific]
-    public virtual string? CompanyName { get; set; }
+    public virtual Url? TopBarUrl { get; set; }
+    
+    [Display(
+        Name = "Top Bar Text",
+        GroupName = TabNames.Header,
+        Order = 150)]
+    [CultureSpecific]
+    public virtual string? TopBarText { get; set; }
 
     [Display(
         Name = "Logo URL",
@@ -40,13 +48,6 @@ public class LayoutSettings
         Order = 200)]
     [AllowedTypes(typeof(SitePageData))]
     public virtual ContentReference? HeaderLogoUrl { get; set; }
-
-    [Display(
-        Name = "Logo Alternative Text",
-        GroupName = TabNames.Header,
-        Order = 300)]
-    [CultureSpecific]
-    public virtual string? HeaderLogoAlternativeText { get; set; }
 
     [Display(
         Name = "Header Menu",
