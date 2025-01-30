@@ -1,17 +1,21 @@
-import { HeaderModel } from '@_types/types';
+import {FooterModel, HeaderModel} from '@_types/types';
 import Header from '@organisms/header/Header';
+import Footer from "@organisms/footer/Footer";
 
 interface Props {
   headerData?: HeaderModel;
+  footerData?: FooterModel;
 }
 
 export const HeaderTemplate = (model: Props) => {
-  const { headerData } = model;
+  const { headerData, footerData } = model;
 
   return (
     <>
       <main>
-        <Header {...headerData} />
+        {headerData && <Header {...headerData} />}
+        <main></main>
+        {footerData && <Footer {...footerData} />}
       </main>
     </>
   );
