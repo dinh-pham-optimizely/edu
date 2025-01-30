@@ -1,6 +1,7 @@
 .zzz-a-link-with-icon {
   --color: #{$white};
   --hover-color: #{$white};
+  text-decoration: none;
 
   display: flex;
   color: var(--color);

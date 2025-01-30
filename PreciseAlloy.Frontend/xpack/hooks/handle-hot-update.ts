@@ -11,7 +11,7 @@ const handleHotUpdate = (): PluginOption => {
       // console.log('handleHotUpdate');
 
       console.log(file, 'handleHotUpdate');
-      if (file.endsWith('.js') || file.endsWith('.css') || file.endsWith('.json'))
+      if (file.endsWith('.js') || file.endsWith('.css') || file.endsWith('.json') || file.endsWith('.svg'))
         server.ws.send({
           type: 'full-reload',
           path: '*',

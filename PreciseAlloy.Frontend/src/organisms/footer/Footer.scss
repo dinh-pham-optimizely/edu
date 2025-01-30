@@ -1,0 +1,243 @@
+.zzz-o-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: $white;
+  border: px2rem(2px) solid $grey-15;
+  border-radius: px2rem(12px);
+  padding: px2rem(60px) px2rem(30px) px2rem(30px) px2rem(30px);
+  margin: 0 px2rem(16px) px2rem(20px) px2rem(16px);
+  box-shadow: px2rem(6px) px2rem(6px) 0 px2rem(1px) #1E1E1E;
+
+  @include desktop {
+    padding: px2rem(80px) px2rem(80px) px2rem(40px) px2rem(80px);
+    margin: 0 px2rem(50px) px2rem(40px) px2rem(50px);
+    align-items: flex-start;
+    box-shadow: px2rem(6px) px2rem(6px) 0 px2rem(2px) #1E1E1E;
+  }
+
+  @include desktop-xl {
+    padding: px2rem(100px) px2rem(113px) px2rem(40px) px2rem(113px);
+    margin-bottom: px2rem(50px);
+  }
+
+  &__top-section {
+    display: flex;
+    flex-direction: column;
+    gap: px2rem(30px);;
+    margin-bottom: px2rem(30px);
+
+    @include desktop {
+      flex-direction: row;
+      gap: px2rem(80px);
+      margin-bottom: px2rem(40px);
+    }
+
+
+    @include desktop-xl {
+      margin-bottom: px2rem(50px);
+    }
+  }
+
+  &__pages {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: px2rem(50px);
+    row-gap: px2rem(30px);
+
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: px2rem(20px);
+    }
+
+    @include desktop-xl {
+      column-gap: px2rem(30px);
+    }
+
+    &-item {
+      flex: .5;
+    }
+
+    &-title {
+      font-weight: 600;
+      font-size: px2rem(16px);
+      line-height: 150%;
+      color: $grey-15;
+      margin-bottom: px2rem(20px);
+
+      @include desktop-xl {
+        margin-bottom: px2rem(24px);
+        font-size: px2rem(20px);
+      }
+    }
+
+    &-links {
+      display: flex;
+      flex-direction: column;
+      gap: px2rem(14px);
+
+      a {
+        font-weight: 500;
+        font-size: px2rem(16px);
+        line-height: 150%;
+
+        color: $grey-20;
+
+        @include desktop-xl {
+          font-size: px2rem(20px);
+        }
+      }
+    }
+  }
+
+  &__info {
+    text-align: center;
+
+    @include desktop {
+      text-align: left;
+    }
+  }
+
+  &__logo {
+    width: px2rem(182px);
+    height: px2rem(40px);
+    margin-bottom: px2rem(16px);
+    display: inline-block;
+  }
+
+  &__description {
+    font-weight: 500;
+    font-size: px2rem(16px);
+    line-height: 150%;
+
+    color: $grey-30
+  }
+
+  &__contacts {
+    margin-top: px2rem(40px);
+
+    @include desktop-xl {
+      margin-top: px2rem(50px);
+    }
+
+    .zzz-a-link-with-icon {
+      color: $grey-15;
+      display: flex;
+      align-items: center;
+
+      &:not(:last-of-type) {
+        margin-bottom: px2rem(20px);
+
+        @include desktop-xl {
+          margin-bottom: px2rem(24px);
+        }
+      }
+
+      .zzz-a-icon {
+        padding: px2rem(8px);
+        background-color: $orange-97;
+        border: px2rem(2px) solid $grey-15;
+        margin-right: px2rem(10px);
+        width: px2rem(32px);
+        height: px2rem(32px);
+        border-radius: px2rem(4px);
+
+        @include desktop-xl {
+          width: px2rem(40px);
+          height: px2rem(40px);
+        }
+      }
+    }
+  }
+
+  &__bottom-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: px2rem(16px);
+    padding-bottom: px2rem(16px);
+    border-top: px2rem(1px) solid $grey-15;
+    gap: px2rem(20px);
+
+    @include desktop {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: px2rem(20px);
+      padding-bottom: px2rem(20px);
+    }
+
+    @include desktop-xl {
+      padding-top: px2rem(30px);
+      padding-bottom: px2rem(30px);
+    }
+  }
+
+
+  &__social-networks {
+    display: flex;
+    gap: px2rem(10px);
+    justify-content: center;
+
+    @include desktop {
+      gap: px2rem(14px);
+    }
+
+    .zzz-a-link-with-icon {
+      color: $grey-15;
+      padding: px2rem(12px);
+      background-color: $orange-90;
+      border-radius: px2rem(6px);
+      border: px2rem(2px) solid $grey-15;
+
+      @include desktop {
+        padding: px2rem(14px);
+      }
+
+      @include desktop-xl {
+        padding: px2rem(16px);
+      }
+    }
+  }
+
+  &__privacy-links {
+    display: flex;
+    align-self: center;
+
+    a {
+      font-weight: 500;
+      font-size: px2rem(12px);
+      line-height: 150%;
+      color: $grey-20;
+      white-space: nowrap;
+
+      &:not(:last-of-type) {
+        border-right: px2rem(1px) solid $grey-15;
+        padding-right: px2rem(6px);
+      }
+
+      &:not(:first-of-type) {
+        padding-left: px2rem(6px);
+      }
+
+      @include desktop {
+        font-size: px2rem(16px);
+      }
+
+      @include desktop-xl {
+        font-size: px2rem(18px);
+      }
+    }
+  }
+
+  &__copy-right {
+    width: 100%;
+    text-align: center;
+    padding-top: px2rem(16px);
+    font-weight: 500;
+    font-size: px2rem(14px);
+    line-height: 150%;
+    color: $grey-40;
+    border-top: px2rem(1px) solid $grey-15;
+  }
+}
